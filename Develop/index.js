@@ -25,10 +25,29 @@ const questions = [
         name: 'usage',
         message: 'Project usage?'
     },
+     {
+        type: 'list',
+        name: 'license',
+        message: 'License?',
+        choices: ['None', 'Apache 2.0', 'MIT', 'GPL v3.0'],
+        validate: licenseInput = () => {
+            if(licenseInput) {
+                return true;
+            }else {
+                console.log("Please select one of the four options")
+                return false;
+            }
+        } 
+    },
     {
         type: 'input',
         name: 'contribution',
         message: 'Contribution info?'
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What tests have been done?'
     },
     {
         type: 'input',
@@ -39,16 +58,8 @@ const questions = [
         type: 'input', 
         name: 'github',
         message: 'For questions(github)?'
-    },
-    {
-        type: 'list',
-        name: 'license',
-        message: 'License?',
-        choices: ['MIT', 'ISC', 'GNUPLv3'],
-        filter(val) {
-            return val.toLowerCase();
-        }
     }
+   
 ];
 
 // TODO: Create a function to write README file
